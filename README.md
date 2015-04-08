@@ -2,4 +2,4 @@
 
 Alerts, flush, whatever for Alt.
 
-**alt-flush** © 2015+, Sourcescript. **alt-flush** is released under the [MIT](mit-license.org) license.
+**alt-notify** © 2015+, Sourcescript. **alt-notify** is released under the [MIT](mit-license.org) license.
