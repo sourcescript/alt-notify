@@ -27,6 +27,10 @@
     "alt": "^0.15.3",
     "react": "^0.13.1"
   },
+  "peerDependencies" : {
+    "alt": "^0.15.3",
+    "react": "^0.13.1"
+  },
   "devDependencies": {
     "chai": "^2.2.0",
     "karma": "^0.12.31",
