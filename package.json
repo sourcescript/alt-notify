@@ -1,0 +1,43 @@
+{
+  "name": "alt-notify",
+  "version": "0.0.1",
+  "description": "Alerts, flush, whatever for Alt.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sourcescript/alt-notify.git"
+  },
+  "keywords": [
+    "alt",
+    "notify",
+    "flux",
+    "flash",
+    "alert"
+  ],
+  "author": "Kier Borromeo <seraphipod@gmail.com> (http://srph.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sourcescript/alt-notify/issues"
+  },
+  "homepage": "https://github.com/sourcescript/alt-notify",
+  "dependencies": {
+    "alt": "^0.15.3",
+    "react": "^0.13.1"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon": "^1.0.4",
+    "karma-webpack": "^1.5.0",
+    "mocha": "^2.2.4",
+    "phantomjs-polyfill": "0.0.1",
+    "sinon": "^1.14.1",
+    "webpack": "^1.8.2"
+  }
+}
