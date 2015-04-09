@@ -17,10 +17,14 @@ class NotifyStore {
     });
   }
 
+  /**
+   * Clears either the whole stack, or
+   * items having the given type
+   */
   onClear(type) {
-    this.stack = this.stack.filter(function(message, i) {
-      return message.type !== type;
-    });
+    this.stack = type == undefined
+      ? []
+      : this.stack.filter(message { =>  message.type !== type; });
   }
 }
 

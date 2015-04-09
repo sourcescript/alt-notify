@@ -47,7 +47,7 @@ export default React.createClass({
         <AltContainer
           store={NotifyStore}
           render={(props) => {
-            var stack = filter
+            var stack = filter == undefined
               ? props.stack
               : props.stack.filter(item => { item.type == filter })
 
