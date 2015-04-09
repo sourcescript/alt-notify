@@ -49,7 +49,7 @@ export default React.createClass({
           render={(props) => {
             var stack = filter == undefined
               ? props.stack
-              : props.stack.filter(item => { item.type == filter })
+              : props.stack.filter(item => item.type == filter);
 
             return stack.map(item, i) => {
               return render(item, key);
