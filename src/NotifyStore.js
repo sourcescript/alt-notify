@@ -24,7 +24,7 @@ class NotifyStore {
   onClear(type) {
     this.stack = type == undefined
       ? []
-      : this.stack.filter(message { =>  message.type !== type; });
+      : this.stack.filter(message => message.type !== type);
   }
 }
 
