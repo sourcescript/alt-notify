@@ -41,7 +41,7 @@ module.exports = function(config) {
     webpack: {
       module: {
         loaders: [
-          { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: "babel-loader?modules=common" },
+          { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: "babel-loader?modules=common&stage=0" },
           // webpack-sinon issue
           // sinon no longer needs to be `require`d.
           { test: /sinon.js$/, loader: "script" }

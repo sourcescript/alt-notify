@@ -51,8 +51,8 @@ export default React.createClass({
               ? props.stack
               : props.stack.filter(item => item.type == filter);
 
-            return stack.map(item, i) => {
-              return render(item, key);
+            return stack.map((item, i) => {
+              return render(Object.assign({}, item, { key: i }));
             });
           }} />
       </div>
