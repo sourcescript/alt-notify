@@ -12,7 +12,7 @@ class NotifyStore {
   }
 
   onRemove(index) {
-    this.stack = this.stack.filter(function(message, i) {
+    this.stack = this.stack.filter((message, i) => {
       return index !== i;
     });
   }
