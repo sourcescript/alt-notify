@@ -1,7 +1,5 @@
-import React from 'react/addons';
-
+import React from 'react';
 import NotifyStore from './NotifyStore';
-import Item from './Item';
 
 /**
  * @usage
