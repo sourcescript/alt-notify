@@ -3,13 +3,15 @@ import React from 'react/addons';
 import NotifyStore from './NotifyStore';
 import Item from './Item';
 
+/**
+ * @usage
+ * <Drawer filter={'success'} render{(data) => {
+ *   return ( <div> {this.data} </div> );
+ * })}
+ */
 export default React.createClass({
-  propTypes: {
-    /**
-     * Types of messages from the Store
-     * to be fetched
-     */
-    filter: React.PropTypes.string
+  getInitialState() {
+    return NotifyStore.getState();
   },
 
   componentDidMount() {
@@ -22,29 +24,57 @@ export default React.createClass({
     NotifyStore.unlisten(this._onChange);
   },
 
+  /**
+   * Handler for the the store listener.
+   */
   _onChange(state) {
-    var filter = this.props.filter;
-    var stack;
+    var { filter } = this.props;
 
-    if ( filter ) {
-      stack = state.stack.filter((item) => {
-        return item.type == filter;
-      });
-    }
+    // We'll filter in items if the `filter` prop was provided
+    var stack = filter
+      ? state.stack
+      : state.stack.filter(item => { item.type == filter });
 
     this.setState({ stack });
   },
 
-  render() {
-    var { stack } = this.state;
-    var { children } = this.props;
+  propTypes: {
+    /**
+     * Types of messages from the Store
+     * to be fetched
+     */
+    filter: React.PropTypes.string,
 
+    /**
+     * The render of each item in the stack. We'll use this instead of
+     * using `children` prop to allow `on-the-go` creation of a drawer.
+     * To add, this removes our dependency from `cloneWithProps` which
+     * exists only from the React `addon` library (oh wait -- we could
+     * require from the lib, directly.. haha).
+     *
+     * To illustrate this,
+     * <Drawer> <MyTemplateForThisDrawer /> </Drawer>
+     * forcing us to create custom components.
+     * Well, that's okay, but it isn't so friendly.
+     *
+     * Compared to this:
+     *
+     * <Drawer render={(data) => {
+     *   return <div style={ ... }>{data.text}</div>;
+     * })} />
+     *
+     * p.s., inspired by Flummox
+     * https://github.com/acdlite/flummox
+     */
+    render: React.PropTypes.func.isRequired
+  },
+
+  render() {
     return (
       <div>
-        {stack.map((item) => {
-          return React.addons.cloneWithProps(children, {
-            data: item
-          });
+        {this.stack.map((item, i) => {
+          /* We'll implicitly put the key here to reduce boilerplate */
+          return <div key={i}> {this.props.render(item)} </div>
         })}
       </div>
     );
