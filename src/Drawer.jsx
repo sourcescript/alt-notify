@@ -8,34 +8,6 @@ import NotifyStore from './NotifyStore';
  * })}
  */
 export default React.createClass({
-  getInitialState() {
-    return NotifyStore.getState();
-  },
-
-  componentDidMount() {
-    // Bind listener
-    NotifyStore.listen(this._onChange);
-  },
-
-  componentWillUnmount() {
-    // Unbind store listener
-    NotifyStore.unlisten(this._onChange);
-  },
-
-  /**
-   * Handler for the the store listener.
-   */
-  _onChange(state) {
-    var { filter } = this.props;
-
-    // We'll filter in items if the `filter` prop was provided
-    var stack = filter
-      ? state.stack
-      : state.stack.filter(item => { item.type == filter });
-
-    this.setState({ stack });
-  },
-
   propTypes: {
     /**
      * Types of messages from the Store
@@ -68,12 +40,21 @@ export default React.createClass({
   },
 
   render() {
+    var { render, filter, ...other } = this.props;
+
     return (
-      <div>
-        {this.state.stack.map((item, i) => {
-          /* We'll implicitly put the key here to reduce boilerplate */
-          return {this.props.render(item, key)}
-        })}
+      <div {...other}>
+        <AltContainer
+          store={NotifyStore}
+          render={(props) => {
+            var stack = filter
+              ? props.stack
+              : props.stack.filter(item => { item.type == filter })
+
+            return stack.map(item, i) => {
+              return render(item, key);
+            });
+          }} />
       </div>
     );
   }

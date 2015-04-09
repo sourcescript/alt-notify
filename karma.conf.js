@@ -7,30 +7,24 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-    // plugins
-    plugins: [
-      'karma-mocha',
-      'karma-webpack',
-      'karma-sinon',
-      'karma-chai',
-      'karma-phantomjs-launcher'
-    ],
-
-
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'sinon', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      // PhantomJS Polyfill
-      // v1.x currently does not support `.bind` which
-      // React uses massively.
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
       'webpack.test.js'
     ],
+
+    client: {
+      mocha: {
+        reporter: 'html', // change Karma's debug.html to the mocha web reporter
+        ui: 'bdd'
+      }
+    },
 
 
     // list of files to exclude
@@ -44,22 +38,24 @@ module.exports = function(config) {
       'webpack.test.js': ['webpack']
     },
 
-    // webpack config
     webpack: {
       module: {
         loaders: [
-          { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader?modules=common&stage=0'}
+          { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: "babel-loader?modules=common" },
+          // webpack-sinon issue
+          // sinon no longer needs to be `require`d.
+          { test: /sinon.js$/, loader: "script" }
         ]
       }
     },
 
-    // mocha config
-    client: {
-      mocha: {
-        reporter: 'html', // change Karma's debug.html to the mocha web reporter
-        ui: 'bdd' // `describe()` instead of `suite()`
-      }
-    },
+    plugins: [
+      'karma-mocha',
+      'karma-webpack',
+      'karma-sinon',
+      'karma-chai',
+      'karma-phantomjs-launcher'
+    ],
 
 
     // test results reporter to use

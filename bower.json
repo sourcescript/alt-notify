@@ -1,0 +1,16 @@
+{
+  "name": "alt-notify",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sourcescript/alt-notify",
+  "authors": [
+    "srph <seraphipod@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
