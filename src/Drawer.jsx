@@ -72,7 +72,7 @@ export default React.createClass({
       <div>
         {this.state.stack.map((item, i) => {
           /* We'll implicitly put the key here to reduce boilerplate */
-          return <div key={i}> {this.props.render(item)} </div>
+          return {this.props.render(item, key)}
         })}
       </div>
     );
