@@ -10,7 +10,7 @@ var NotifyStore = require('../NotifyStore');
 describe('Drawer component', function() {
   describe('filter', function() {
     it('should filter the messages properly when provided', function() {
-      sinon.stub(NotifyStore, 'getState');
+      // sinon.stub(NotifyStore, 'getState');
     });
 
     it('should not filter the messages properly when not provided', function() {

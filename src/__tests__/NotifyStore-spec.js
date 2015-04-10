@@ -1,9 +1,11 @@
 var expect = require('chai').expect;
 var NotifyStore = require('../NotifyStore');
+console.log(NotifyStore.getState);
+// console.log(NotifyStore.getState());
 
 describe('NotifyStore', function() {
   it('should have an empty stack at start', function() {
-    expect(NotifyStore.getState()).to.equal(0);
+    expect(NotifyStore.getState().stack.length).to.equal(0);
   });
 
   describe('#add', function() {
