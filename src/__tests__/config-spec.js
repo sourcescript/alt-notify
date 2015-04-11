@@ -1,8 +1,8 @@
-var expect = require('chai').expect;
-var config = require('../config');
+import { expect } from 'chai';
+import * as config from '../config';
 
 describe('config', function() {
-  it('should return the `duration` value if no argument was provded', function() {
+  it('should return the `duration` value if no argument was provided', function() {
     expect(config.duration()).to.equal(10000);
   });
 

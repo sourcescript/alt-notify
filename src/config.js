@@ -16,7 +16,7 @@ var _duration = 10000;
  * @parmam {int} ms
  * @return {this|int}
  */
-export var duration => (ms) {
+export function duration (ms) {
   if ( ms ) {
     // We'll parse it as int just in case a
     // dumb consumer tries to provide a string

@@ -12,7 +12,7 @@ class NotifyStore {
   }
 
   onRemove(index) {
-    this.stack.splice(index, 1);
+    var stack = this.stack.splice(index, 1);
   }
 
   /**
@@ -22,7 +22,7 @@ class NotifyStore {
   onClear(type) {
     this.stack = type == undefined
       ? []
-      : this.stack.filter(message => message.type !== type);
+      : this.stack.filter(item => item.type !== type);
   }
 }
 
