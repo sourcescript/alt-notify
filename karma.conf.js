@@ -36,7 +36,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'webpack.test.js': ['webpack']
+      'webpack.test.js': ['webpack', 'sourcemap']
     },
 
     webpack: {
@@ -47,7 +47,11 @@ module.exports = function(config) {
           // sinon no longer needs to be `require`d.
           { test: /(sinon.js)$/, loader: "script" }
         ]
-      }
+      },
+      resolve: {
+        extensions: ['', '.js', '.jsx', '.es6']
+      },
+      devtool: 'inline-source-map'
     },
 
     plugins: [
