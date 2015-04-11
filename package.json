@@ -4,7 +4,7 @@
   "description": "Alerts, flush, whatever for Alt.",
   "main": "src/index.js",
   "scripts": {
-    "test": "karma start"
+    "test": "karma start --single-run"
   },
   "repository": {
     "type": "git",
