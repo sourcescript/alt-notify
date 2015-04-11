@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
+      './node_modules/babel-core/browser-polyfill.js',
       'webpack.test.js'
     ],
 
@@ -44,7 +45,7 @@ module.exports = function(config) {
           { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: "babel-loader?modules=common&stage=0" },
           // webpack-sinon issue
           // sinon no longer needs to be `require`d.
-          { test: /sinon.js$/, loader: "script" }
+          { test: /(sinon.js)$/, loader: "script" }
         ]
       }
     },

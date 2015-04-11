@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-// var sinon = require('sinon'); // no need to require
 import alt from '../alt';
 
 describe('NotifyActions', () => {
@@ -9,7 +8,7 @@ describe('NotifyActions', () => {
   });
 
   afterEach(() => {
-    // clean up
+    // Restore spies so we don't affect other tests
     alt.dispatcher.dispatch.restore();
   });
 

@@ -1,11 +1,22 @@
 import { expect } from 'chai';
-// var sinon = require('sinon'); // no need to require
 import alt from '../alt';
 import NotifyStore from '../NotifyStore';
 import NotifyActions from '../NotifyActions';
+import * as config from '../config';
+
 var dispatcher = alt.dispatcher;
 
 describe('NotifyStore', () =>  {
+  beforeEach(() => {
+    // Stub duration
+    sinon.stub(config, 'duration').returns(10000);
+  });
+
+  afterEach(() => {
+    // Restore stubs so we don't affect other tests
+    config.duration.restore();
+  })
+
   it('should have an empty stack at start', () =>  {
     expect(NotifyStore.getState().stack.length).to.equal(0);
   });
@@ -19,19 +30,20 @@ describe('NotifyStore', () =>  {
   });
 
   describe('#remove', () =>  {
-    it('should remove a message of the provided index in the stack', () => {
+    it('should remove a message of the provided id in the stack', () => {
       const oldStackLength = NotifyStore.getState().stack.length;
 
       // we'll add first
       dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
-      // two since we just added two through the dispatcher as stated two lines above
-      expect(NotifyStore.getState().stack.length).to.equal(oldStackLength + 2);
+      // Get the id of the last message
+      const lastId = NotifyStore.getState().stack[oldStackLength]._id;
 
       // then the actual test
-      dispatcher.dispatch({ action: NotifyActions.REMOVE, data: 1 });
-      expect(NotifyStore.getState().stack.length).to.equal(oldStackLength + 1);
-      expect(NotifyStore.getState().stack[oldStackLength + 1]).to.equal(undefined);
+      dispatcher.dispatch({ action: NotifyActions.REMOVE, data: lastId });
+      expect(NotifyStore.getState().stack
+        .map(item => item._id)
+          .indexOf(lastId)
+      ).to.equal(-1);
     });
   });
 

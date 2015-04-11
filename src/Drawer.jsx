@@ -1,4 +1,5 @@
 import React from 'react';
+import NotifyActions from './NotifyActions';
 import NotifyStore from './NotifyStore';
 
 /**
@@ -52,7 +53,10 @@ export default React.createClass({
               : props.stack.filter(item => item.type == filter);
 
             return stack.map((item, i) => {
-              return render(Object.assign({}, item, { key: i }));
+              return render(Object.assign({}, item, {
+                key: i,
+                removeHandler: NotifyActions.remove.bind(null, item._id)
+              }));
             });
           }} />
       </div>
