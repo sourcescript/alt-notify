@@ -3,18 +3,18 @@ import { expect } from 'chai'
 import Component from '../Drawer';
 import NotifyStore from '../NotifyStore';
 const { TestUtils } = React.addons;
-describe('Drawer component', function() {
+describe('Drawer component', () => {
   var stub;
-  beforeEach(function() {
+  beforeEach(() => {
     stub = sinon.stub(NotifyStore, 'getState');
   })
   // Restore the stubs
-  afterEach(function() {
+  afterEach(() => {
     NotifyStore.getState.restore();
   });
 
   describe('filter', function() {
-    it('should render only messages with certain type when filter is provided', function() {
+    it('should render only messages with certain type when filter is provided', () => {
       stub.returns({ stack: [
           { _id: 1, _type: 'notification' },
           { _id: 2, _type: 'notification' },
@@ -31,7 +31,7 @@ describe('Drawer component', function() {
       expect(elements.length).to.equal(2);
     });
 
-    it('should render all messages when filter is not provided', function() {
+    it('should render all messages when filter is not provided', () => {
       stub.returns({ stack: [
           { _id: 1, _type: 'notification' },
           { _id: 2 },
@@ -45,5 +45,11 @@ describe('Drawer component', function() {
       var elements = TestUtils.scryRenderedDOMComponentsWithTag(Instance, 'span');
       expect(elements.length).to.equal(3);
     });
-  })
+  });
+
+  describe('remove', () => {
+    it('should be able to remove the children themselves', () => {
+      //
+    });
+  });
 });
