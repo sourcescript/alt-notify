@@ -12,7 +12,7 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-sinon',
       'karma-chai',
-      'karma-chrome-launcher'
+      'karma-phantomjs-launcher'
     ],
 
 
@@ -24,8 +24,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // PhantomJS polyfill
-      // './node_modules/phantomjs-polyfill/bind-polyfill.js',
-      // './node_modules/babel-core/browser-polyfill.js',
+      './node_modules/phantomjs-polyfill/bind-polyfill.js',
+      './node_modules/babel-core/browser-polyfill.js',
       'webpack.test.js'
     ],
 
@@ -85,7 +85,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode

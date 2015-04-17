@@ -9,7 +9,7 @@ describe('NotifyStore', () =>  {
   beforeEach(() => {
     // Stub duration
     sinon.stub(config, 'duration').returns(10000);
-    Store = AltTestingUtils.makeStoreTestable(alt, NotifyStore);
+    Store = AltTestingUtils.makeStoreTestable(alt, NotifyStore.StoreModel);
   });
 
   afterEach(() => {
@@ -23,60 +23,47 @@ describe('NotifyStore', () =>  {
 
   describe('#add', () =>  {
     it('should add in data to the stack', () =>  {
-      Store.add({});
+      Store.onAdd({});
       expect(Store.stack.length).to.equal(1);
     });
   });
 
   describe('#remove', () =>  {
     it('should remove a message of the provided id in the stack', () => {
-      const oldStackLength = NotifyStore.getState().stack.length;
-
       // we'll add first
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
+      Store.onAdd({});
       // Get the id of the last message
-      const lastId = NotifyStore.getState().stack[oldStackLength]._id;
+      const lastId = Store.stack[0]._id;
 
       // then the actual test
-      dispatcher.dispatch({ action: NotifyActions.REMOVE, data: lastId });
-      expect(NotifyStore.getState().stack
-        .map(item => item._id)
-          .indexOf(lastId)
-      ).to.equal(-1);
+      Store.onRemove(lastId);
+      expect(Store.stack.map(item => item._id).indexOf(lastId)).to.equal(-1);
     });
   });
 
   describe('#clear', () =>  {
-    it('should clear the stack', () =>  {
-      const oldStackLength = NotifyStore.getState().stack.length;
+    it('should clear the stack', () => {
+      Store.stack = [{}, {}, {}];
+      expect(Store.stack.length).to.equal(3);
 
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
-      expect(NotifyStore.getState().stack.length).to.equal(oldStackLength + 3);
-
-      dispatcher.dispatch({ action: NotifyActions.CLEAR });
-      expect(NotifyStore.getState().stack.length).to.equal(0);
+      Store.onClear();
+      expect(Store.stack.length).to.equal(0);
     });
 
     it('should remove all items in the stack with the provided type', () =>  {
       const type = 'success';
-      const oldStackLength = NotifyStore.getState().stack.length;
 
       // add three items
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: { type } });
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
-      // just add an expectation so we know there are three
-      // and the item with [type] exists
-      expect(NotifyStore.getState().stack.map(item => item.type).indexOf(type)).not.to.equal(-1);
-      expect(NotifyStore.getState().stack.length).to.equal(oldStackLength + 3);
+      Store.onAdd({ type });
+      Store.onAdd({});
+      Store.onAdd({});
+      expect(Store.stack.length).to.equal(3);
 
       // the actual test. first, we run the `clear` action
       // then we check if it still exists (the opposite of the expectation above)
-      dispatcher.dispatch({ action: NotifyActions.CLEAR, data: type });
-      expect(NotifyStore.getState().stack.map(item => item.type).indexOf(type)).to.equal(-1);
-      expect(NotifyStore.getState().stack.length).to.equal(oldStackLength + 2);
+      Store.onClear(type);
+      expect(Store.stack.map(item => item.type).indexOf(type)).to.equal(-1);
+      expect(Store.stack.length).to.equal(2);
     });
   });
 });
