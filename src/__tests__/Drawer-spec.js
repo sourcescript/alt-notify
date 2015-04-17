@@ -6,15 +6,10 @@ var TestUtils = React.addons.TestUtils;
 
 describe('Drawer component', () => {
   var stub;
-  beforeEach(() => {
-    stub = sinon.stub(NotifyStore, 'getState');
-  })
-  // Restore the stubs
-  afterEach(() => {
-    NotifyStore.getState.restore();
-  });
+  beforeEach(() => { stub = sinon.stub(NotifyStore, 'getState'); })
+  afterEach(() => { NotifyStore.getState.restore(); });
 
-  describe('filter', function() {
+  describe('@filter', function() {
     it('should render only messages with certain type when filter is provided', () => {
       stub.returns({ stack: [
           { _id: 1, _type: 'notification' },
@@ -24,9 +19,10 @@ describe('Drawer component', () => {
         ]
       });
 
-      var Instance = TestUtils.renderIntoDocument(<Component
-        filter="notification"
-        render={(props) => { return <span key={props.key} /> }} />);
+      var Instance = TestUtils.renderIntoDocument(
+        <Component filter="notification"
+        render={props => <span key={props.key} /> } />
+      );
 
       var elements = TestUtils.scryRenderedDOMComponentsWithTag(Instance, 'span');
       expect(elements.length).to.equal(2);
@@ -40,15 +36,13 @@ describe('Drawer component', () => {
         ]
       });
 
-      var Instance = TestUtils.renderIntoDocument(<Component
-        render={(props) => { return <span key={props.key} /> }} />);
-
+      var Instance = TestUtils.renderIntoDocument(<Component render={props => <span key={props.key} /> } />);
       var elements = TestUtils.scryRenderedDOMComponentsWithTag(Instance, 'span');
       expect(elements.length).to.equal(3);
     });
   });
 
-  describe('remove', () => {
+  describe('@remove', () => {
     it('should be able to remove the children themselves', () => {
       //
     });

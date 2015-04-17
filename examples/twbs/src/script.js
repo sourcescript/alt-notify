@@ -5,7 +5,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <AltNotify.Drawer filter="alert"
+        <Drawer filter="alert"
           render={(data) => {
             <div key={data.key}> {data.text} </data>
           }} />
