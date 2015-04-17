@@ -1,15 +1,15 @@
 import { expect } from 'chai';
 import alt from '../alt';
 import NotifyStore from '../NotifyStore';
-import NotifyActions from '../NotifyActions';
+import AltTestingUtils from 'alt/utils/AltTestingUtils';
 import * as config from '../config';
 
-var dispatcher = alt.dispatcher;
-
 describe('NotifyStore', () =>  {
+  var Store;
   beforeEach(() => {
     // Stub duration
     sinon.stub(config, 'duration').returns(10000);
+    Store = AltTestingUtils.makeStoreTestable(alt, NotifyStore);
   });
 
   afterEach(() => {
@@ -18,14 +18,13 @@ describe('NotifyStore', () =>  {
   })
 
   it('should have an empty stack at start', () =>  {
-    expect(NotifyStore.getState().stack.length).to.equal(0);
+    expect(Store.stack.length).to.equal(0);
   });
 
   describe('#add', () =>  {
     it('should add in data to the stack', () =>  {
-      const oldStackLength = NotifyStore.getState().stack.length;
-      dispatcher.dispatch({ action: NotifyActions.ADD, data: {} });
-      expect(NotifyStore.getState().stack.length).to.equal(oldStackLength + 1);
+      Store.add({});
+      expect(Store.stack.length).to.equal(1);
     });
   });
 

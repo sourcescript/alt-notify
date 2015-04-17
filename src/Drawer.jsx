@@ -56,7 +56,7 @@ export default React.createClass({
             return !!stack.length ? <div> { stack.map((item, i) => {
               return render(Object.assign({}, item, {
                 key: i,
-                removeHandler: NotifyActions.remove.bind(null, item._id)
+                removeHandler: () => NotifyActions.remove(item._id)
               }));
             }) } </div> : null;
           }} />

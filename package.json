@@ -24,19 +24,21 @@
   },
   "homepage": "https://github.com/sourcescript/alt-notify",
   "dependencies": {
-    "alt": "^0.15.3",
-    "react": "^0.13.1"
+    "alt": "0.15.5",
+    "react": "0.13.1"
   },
   "peerDependencies": {
-    "alt": "^0.15.3",
-    "react": "^0.13.1"
+    "alt": "0.15.5",
+    "react": "0.13.1"
   },
   "devDependencies": {
+    "babel": "^5.1.10",
     "babel-core": "^5.0.12",
     "babel-loader": "^5.0.0",
     "chai": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.8",
     "karma-cli": "0.0.4",
     "karma-mocha": "^0.1.10",
     "karma-phantomjs-launcher": "^0.1.4",
@@ -45,9 +47,8 @@
     "karma-webpack": "^1.5.0",
     "mocha": "^2.2.4",
     "phantomjs-polyfill": "0.0.1",
+    "polyfill-function-prototype-bind": "0.0.1",
     "script-loader": "^0.6.1",
-    "sinon": "^1.14.1",
-    "sinon-chai": "^2.7.0",
-    "webpack": "^1.8.2"
+    "sinon": "^1.14.1"
   }
 }

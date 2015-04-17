@@ -7,6 +7,14 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
+    plugins: [
+      'karma-mocha',
+      'karma-webpack',
+      'karma-sinon',
+      'karma-chai',
+      'karma-chrome-launcher'
+    ],
+
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -15,8 +23,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './node_modules/phantomjs-polyfill/bind-polyfill.js',
-      './node_modules/babel-core/browser-polyfill.js',
+      // PhantomJS polyfill
+      // './node_modules/phantomjs-polyfill/bind-polyfill.js',
+      // './node_modules/babel-core/browser-polyfill.js',
       'webpack.test.js'
     ],
 
@@ -36,16 +45,13 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'webpack.test.js': ['webpack', 'sourcemap']
+      'webpack.test.js': ['webpack']
     },
 
     webpack: {
       module: {
         loaders: [
           { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: "babel-loader?modules=common&stage=0" },
-          // webpack-sinon issue
-          // sinon no longer needs to be `require`d.
-          { test: /(sinon.js)$/, loader: "script" }
         ]
       },
       resolve: {
@@ -53,15 +59,6 @@ module.exports = function(config) {
       },
       devtool: 'inline-source-map'
     },
-
-    plugins: [
-      'karma-mocha',
-      'karma-webpack',
-      'karma-sinon',
-      'karma-chai',
-      'karma-phantomjs-launcher'
-    ],
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -88,7 +85,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

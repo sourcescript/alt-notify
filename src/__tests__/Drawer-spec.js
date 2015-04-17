@@ -1,8 +1,9 @@
-import React from 'react/addons';
 import { expect } from 'chai'
-import Component from '../Drawer';
+import React from 'react/addons';
+import Component from '../Drawer.jsx';
 import NotifyStore from '../NotifyStore';
-const { TestUtils } = React.addons;
+var TestUtils = React.addons.TestUtils;
+
 describe('Drawer component', () => {
   var stub;
   beforeEach(() => {
