@@ -7,7 +7,7 @@ var App = React.createClass({
     return (
       <div>
         <Drawer render={(data) => {
-            return <div> {data} </div>
+            return <div>{data.text}</div>
           }} />
 
         <button onClick={() => { NotifyActions.add({ type: 'alert', text: 'hehe' }) }} type="button">
