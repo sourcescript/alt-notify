@@ -1,4 +1,4 @@
-baseurl: sourcescript.github.io/alt-notify/
+baseurl: /sourcescript.github.io/alt-notify/
 highlighter: pygments
 markdown: kramdown
 permalink: date
