@@ -6,12 +6,11 @@ var App = React.createClass({
   render() {
     return (
       <div>
-        <Drawer filter="alert"
-          render={(data) => {
-            <div key={data.key}> {data.text} </div>
+        <Drawer render={(data) => {
+            return <div> {data} </div>
           }} />
 
-        <button onClick={NotifyActions.add.bind(null, { text: 'hehe' })} type="button">
+        <button onClick={() => { NotifyActions.add({ type: 'alert', text: 'hehe' }) }} type="button">
           Notify
         </button>
       </div>
