@@ -1,6 +1,6 @@
 {
   "name": "alt-notify",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Alerts, flush, whatever for Alt.",
   "main": "src/index.js",
   "scripts": {
