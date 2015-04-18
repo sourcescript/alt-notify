@@ -1,57 +1,11 @@
-# Welcome
+# Introduction
 
-There's a lot of outdated information on the Web that leads new PHP users astray,
-propagating bad practices and insecure code. _PHP: The Right Way_ is an easy-to-read,
-quick reference for PHP popular coding standards, links to authoritative tutorials
-around the Web and what the contributors consider to be best practices at the present
-time.
+This library is undergoing active development, and will be released soon (the same goes for the documentation).
 
-_There is no canonical way to use PHP_. This website aims to introduce new PHP
-developers to some topics which they may not discover until it is too late, and aims
-to give seasoned pros some fresh ideas on those topics they've been doing for years
-without ever reconsidering. This website will also not tell you which tools to use, but
-instead offer suggestions for multiple options, when possible explaining the differences
-in approach and use-case.
+This library was primarily written for use for React and Alt. It will and does not try to cover everyone's use-cases -- the reason why it is and will be kept as simple as possible.
 
-This is a living document and will continue to be updated with more helpful information
-and examples as they become available.
+## SemVer
 
-## Translations
+![SemVer 2.0.0 Badge](https://img.shields.io/badge/semver-2.0.0-blue.svg?style=flat-square)
 
-_PHP: The Right Way_ is translated into many different languages:
-
-* [English](http://www.phptherightway.com)
-* [Bulgarian](http://bg.phptherightway.com/)
-* [Chinese (Simplified)](http://wulijun.github.com/php-the-right-way)
-* [Chinese (Traditional)](http://laravel-taiwan.github.io/php-the-right-way)
-* [French](http://eilgin.github.io/php-the-right-way/)
-* [German](http://rwetzlmayr.github.io/php-the-right-way/)
-* [Indonesian](http://id.phptherightway.com/)
-* [Italian](http://it.phptherightway.com/)
-* [Japanese](http://ja.phptherightway.com)
-* [Korean](http://modernpug.github.io/php-the-right-way/)
-* [Persian](http://novid.github.io/php-the-right-way/)
-* [Polish](http://pl.phptherightway.com/)
-* [Portuguese](http://br.phptherightway.com/)
-* [Romanian](https://bgui.github.io/php-the-right-way/)
-* [Russian](http://getjump.github.io/ru-php-the-right-way)
-* [Serbian](http://smatejic.github.io/php-the-right-way/)
-* [Slovenian](http://sl.phptherightway.com)
-* [Spanish](http://phpdevenezuela.github.io/php-the-right-way/)
-* [Thai](https://apzentral.github.io/php-the-right-way/)
-* [Turkish](http://hkulekci.github.io/php-the-right-way/)
-* [Ukrainian](http://iflista.github.com/php-the-right-way/)
-
-## How to Contribute
-
-Help make this website the best resource for new PHP programmers! [Contribute on GitHub][1]
-
-## Spread the Word!
-
-_PHP: The Right Way_ has web banner images you can use on your website. Show your support, and let new PHP developers
-know where to find good information!
-
-[See Banner Images][2]
-
-[1]: https://github.com/codeguy/php-the-right-way/tree/gh-pages
-[2]: /banners.html
+Right now, this library is a work-in-progress, and will continue to have breaking changes (however follows SemVer) as long as necessary. Until `v1.0`, breaking changes will continue to bump `v0.x`. For example, `v0.4.1` and `v0.4.8` will have the same API, but `0.5.0` will have breaking changes.
