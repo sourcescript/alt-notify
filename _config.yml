@@ -26,4 +26,4 @@ defaults:
           #
           project_repo: https://github.com/sourcescript/alt-notify
 
-exclude: ['LICENSE', 'README.md', 'pages/example.md']
+exclude: ['LICENSE', 'README.md']
