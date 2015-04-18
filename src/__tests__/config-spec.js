@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import * as config from '../config';
+import config from '../config';
 
 describe('config', () => {
   it('should return the `duration` value if no argument was provided', () => {

@@ -1,10 +1,13 @@
+import config from './config';
 var TIMEOUT_PROPERTY = '_timeout';
 
 class Item {
   constructor(data) {
+    data || (data = {});
+    
     this.id = data.id
     this.type = data.type;
-    this.duration = data.duration;
+    this.duration = data.duration || config.duration();
     this.removeHandler = data.removeHandler;
     this.init(); // Call autotimah
   }
@@ -23,9 +26,12 @@ class Item {
    */
   remove() {
     if ( this[TIMEOUT_PROPERTY] ) {
-      cancelTimeout(this[TIMEOUT_PROPERTY]);
+      clearTimeout(this[TIMEOUT_PROPERTY]);
+      console.log(this[TIMEOUT_PROPERTY]);
     }
 
     this.removeHandler();
   }
 }
+
+export default Item;

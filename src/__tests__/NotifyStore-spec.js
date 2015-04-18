@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import alt from '../alt';
 import NotifyStore from '../NotifyStore';
 import AltTestingUtils from 'alt/utils/AltTestingUtils';
-import * as config from '../config';
+import config from '../config';
 
 describe('NotifyStore', () =>  {
   var Store;

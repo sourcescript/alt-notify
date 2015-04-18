@@ -1,5 +1,5 @@
 import alt from './alt';
-import * as config from './config';
+import config from './config';
 import NotifyActions from './NotifyActions';
 
 // ID

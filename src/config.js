@@ -16,13 +16,15 @@ var _duration = 10000;
  * @parmam {int} ms
  * @return {this|int}
  */
-export function duration (ms) {
-  if ( ms ) {
-    // We'll parse it as int just in case a
-    // dumb consumer tries to provide a string
-    _duration = parseInt(ms, 10);
-    return this;
-  } else {
-    return _duration;
+export default {
+  duration: function (ms) {
+    if ( ms ) {
+      // We'll parse it as int just in case a
+      // dumb consumer tries to provide a string
+      _duration = parseInt(ms, 10);
+      return this;
+    } else {
+      return _duration;
+    }
   }
 };
