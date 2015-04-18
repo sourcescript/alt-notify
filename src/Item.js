@@ -15,7 +15,7 @@ class Item {
    */
   init() {
     this[TIMEOUT_PROPERTY] = setTimeout(this.remove.bind(this), this.duration);
-  },
+  }
 
   /**
    * Cancels the timeout, and calls the removeHandler
