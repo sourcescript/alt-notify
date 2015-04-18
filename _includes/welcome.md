@@ -1,5 +1,20 @@
 # Introduction
 
+**{{ page.project_name }}** was designed to be unopinionated to be used for almost any use-case. This means that you can use this library for your flashing notifications like Facebook's or Twitter's), or for simple alert messages, or whatever you can think of.
+
+You can dish out the whole thing yourself, but that's tedious, right?
+
+Here are some examples of the use-cases (Hey, nobody said that these apps use this library, aight?).
+
+[![Facebook's Notification Drawer]({{ site.baseurl }}images/_intro-1.jpg)]({{ site.baseurl }}images/_intro-1.jpg)
+<sup>** Facebook's Notification Drawer**</sup>
+
+[![Dropbox's Action Notification]({{ site.baseurl }}images/_intro-2.jpg)]({{ site.baseurl }}images/_intro-2.jpg)
+<sup>**Dropbox's Action Notification**</sup>
+
+
+## Important Notes
+
 **{{ page.project_name }}** is undergoing active development, and will be released soon (the same goes for the documentation).
 
 This library was primarily written for use for [React](https://facebook.github.io/react) and [Alt](https://alt.js.org). It will and does not try to cover everyone's use-cases -- the reason why it is and will be kept as simple as possible.
