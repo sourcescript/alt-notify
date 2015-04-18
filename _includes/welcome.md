@@ -1,8 +1,8 @@
 # Introduction
 
-This library is undergoing active development, and will be released soon (the same goes for the documentation).
+**{{ page.project_name }}** is undergoing active development, and will be released soon (the same goes for the documentation).
 
-This library was primarily written for use for React and Alt. It will and does not try to cover everyone's use-cases -- the reason why it is and will be kept as simple as possible.
+This library was primarily written for use for [React](https://facebook.github.io/react) and [Alt](https://alt.js.org). It will and does not try to cover everyone's use-cases -- the reason why it is and will be kept as simple as possible.
 
 ## ES6
 
