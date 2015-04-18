@@ -7,9 +7,11 @@ You can dish out the whole thing yourself, but that's tedious, right?
 Here are some examples of the use-cases (Hey, nobody said that these apps use this library, aight?).
 
 [![Facebook's Notification Drawer]({{ site.baseurl }}images/intro-1.png)]({{ site.baseurl }}images/intro-1.png)
+
 <sup>**Facebook's Notification Drawer**</sup>
 
 [![Dropbox's Action Notification]({{ site.baseurl }}images/intro-2.png)]({{ site.baseurl }}images/intro-2.png)
+
 <sup>**Dropbox's Action Notification**</sup>
 
 
