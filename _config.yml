@@ -18,5 +18,12 @@ defaults:
           path: ""
       values:
           sitemap: false
+          # couldn't access site.basetitle (seeabove)
+          # in a page, so..
+          project_name: 'alt-notify'
+          #
+          project_description: 'Alerts, notification, whatever for Alt.'
+          #
+          project_repo: https://github.com/sourcescript/alt-notify
 
 exclude: ['LICENSE', 'README.md', 'pages/example.md']

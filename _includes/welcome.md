@@ -4,6 +4,10 @@ This library is undergoing active development, and will be released soon (the sa
 
 This library was primarily written for use for React and Alt. It will and does not try to cover everyone's use-cases -- the reason why it is and will be kept as simple as possible.
 
+## ES6
+
+Currently, **{{ page.project_name }}**, like **alt** itself, is written in ES6 and transpiled with [Babel](https://babeljs.org).
+
 ## SemVer
 
 ![SemVer 2.0.0 Badge](https://img.shields.io/badge/semver-2.0.0-blue.svg?style=flat-square)

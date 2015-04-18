@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>{% if page.title %}{{ page.title }} - {% endif %}Alt Notify</title>
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.projectname }}</title>
   <meta name="description" content="{{ page.description }}"/>
   <meta name="robots" content="index,follow,archive"/>
   <meta property="og:image" content="http://www.phptherightway.com/images/og-logo.png"/>
@@ -23,9 +23,9 @@
     <div class="build-date">Last Updated: {{ site.time }}</div>
     <ul>
       <li>
-        <a href="/#site-header">Introduction</a>
+        <a href="#site-header">Introduction</a>
         <ul>
-          <li><a href="/#important-notes">SemVer</a></li>
+          <li><a href="#important-notes">SemVer</a></li>
         </ul>
       </li>
       {% assign lastIsChild = false %}
@@ -37,7 +37,7 @@
               {% assign insideSection = false %}
             {% endif %}
           {% endif %}
-        <li><a href="/#{{ post.anchor }}">{{ post.title }}</a>
+        <li><a href="#{{ post.anchor }}">{{ post.title }}</a>
         {% if post.isChild %}
           </li>
         {% else %}
@@ -57,8 +57,8 @@
 
     <header class="site-header" id="site-header">
       <hgroup>
-        <h1 class="site-title"><a href="/">Alt Notify</a></h1>
-        <h2 class="site-slogan">Alerts, notification, whatever for Alt.</h2>
+        <h1 class="site-title"><a href="/">{{ page.project_name }}</a></h1>
+        <h2 class="site-slogan">{{ page.project_description }}</h2>
       </hgroup>
     </header>
     {{ content }}
