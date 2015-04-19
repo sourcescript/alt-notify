@@ -1,23 +1,19 @@
 import config from './config';
-var TIMEOUT_PROPERTY = '_timeout';
+import NotifyActions from './NotifyActions';
+const ID = Symbol('id');
+const DURATION = Symbol('duration');
+const INIT = Symbol('init');
+const TIMEOUT = Symbol('_timeout');
 
 class Item {
   constructor(data) {
     data || (data = {});
-    
-    this.id = data.id
+  
+    this[ID] = data.id
     this.type = data.type;
-    this.duration = data.duration || config.duration();
-    this.removeHandler = data.removeHandler;
-    this.init(); // Call autotimah
-  }
+    this[DURATION] = data.duration || config.duration();
 
-  /**
-   * Starts the timer to autokill itself
-   * @see {remove}
-   */
-  init() {
-    this[TIMEOUT_PROPERTY] = setTimeout(this.remove.bind(this), this.duration);
+    this[TIMEOUT] = setTimeout(this.remove.bind(this), this.duration);
   }
 
   /**
@@ -25,12 +21,11 @@ class Item {
    * @see {constructor} (for the removeHandler)
    */
   remove() {
-    if ( this[TIMEOUT_PROPERTY] ) {
-      clearTimeout(this[TIMEOUT_PROPERTY]);
-      console.log(this[TIMEOUT_PROPERTY]);
+    if ( this[TIMEOUT] ) {
+      clearTimeout(this[TIMEOUT]);
     }
 
-    this.removeHandler();
+    NotifyActions.remove(this[ID]);
   }
 }
 

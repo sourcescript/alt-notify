@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import config from '../config';
+import NotifyActions from '../NotifyActions';
 import Item from '../Item';
 
 describe('Item object', () => {
@@ -8,18 +9,7 @@ describe('Item object', () => {
   afterEach(function () { clock.restore(); });
 
   describe('#constructor', () => {
-    it('should call init on instantiation', () => {
-      sinon.spy(Item.prototype, 'init');
-
-      var item = new Item();
-      expect(item.init.called).to.equal(true);
-
-      Item.prototype.init.restore();
-    });
-  });
-
-  describe('#init', () => {
-    it('should start the timer when called', () => {
+    it('should start the timer when instantiated', () => {
       sinon.spy(window, 'setTimeout');
 
       // It's called on the constructor so we'll just instantiate
@@ -38,7 +28,7 @@ describe('Item object', () => {
       sinon.spy(window, 'clearTimeout');
       // We don't really need to test the `removeHandler`
       // as this is tested on the test below
-      var item = new Item({ removeHandler: sinon.spy(), duration });
+      var item = new Item({ duration });
 
       clock.tick(duration);
       expect(clearTimeout.called).to.equal(true);
@@ -52,7 +42,7 @@ describe('Item object', () => {
       // We don't really need to test the `removeHandler`
       // as this is tested on the test below
       sinon.spy(Item.prototype, 'remove');
-      var item = new Item({ removeHandler: sinon.spy() });
+      var item = new Item({});
 
       clock.tick(duration);
       expect(item.remove.called).to.equal(true);
@@ -61,12 +51,13 @@ describe('Item object', () => {
       config.duration.restore();
     });
 
-    it('should call the provided `removeHandler`', () => {
-      var spy = sinon.spy();
-      var item = new Item({ removeHandler: spy });
+    it('should call the NotifyActions.remove with the given id', () => {
+      var spy = sinon.spy(NotifyActions, 'remove');
+      var item = new Item({});
 
       item.remove();
-      expect(spy.called).to.equal(true);
+      expect(NotifyActions.remove.called).to.equal(true);
+      NotifyActions.remove.restore()
     });
   });
 });

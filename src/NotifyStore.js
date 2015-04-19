@@ -1,5 +1,5 @@
 import alt from './alt';
-import config from './config';
+import Item from './Item';
 import NotifyActions from './NotifyActions';
 
 // ID
@@ -15,18 +15,15 @@ class NotifyStore {
    * Adds a new item to the stack
    */
   onAdd(data) {
-    // We'll set it to variable for shorthand accessbility,
-    // omit their original propety name,
-    // and then prefix them with `_`.
-    // { type: .. } => { _type: .. }
     var { type, duration } = data;
-    // Note that we'll prefix properties with `_`
-    // to mark it as an important variable.
-    this.stack.push(Object.assign({}, {
-      _id: _counter++,
-      _duration: duration || config.duration(),
-      _type: type
-    }, data));
+    var id = _counter++;
+
+    this.stack.push(new Item({
+      id: id,
+      duration: duration,
+      type: type,
+      data: data
+    }));
   }
 
   /**
@@ -34,14 +31,13 @@ class NotifyStore {
    */
   onRemove(id) {
     const index = this.stack
-      .map(item => item._id)
+      .map(item => item.id)
         .indexOf(id);
 
-    // If the message does not exist aynore
+    // If the message does not in the stack anymore,
+    // We'll just let it be. This only happens when
+    // a `clear` occurs. Not that there's any other reason.
     if ( index == -1 ) {
-      console.warn(`The item with id ${id} to be
-        removed does not exist in the stack.`);
-
       return false;
     }
 
@@ -54,7 +50,7 @@ class NotifyStore {
   onClear(type) {
     this.stack = type == undefined
       ? []
-      : this.stack.filter(item => item._type !== type);
+      : this.stack.filter(item => item.type !== type);
   }
 }
 

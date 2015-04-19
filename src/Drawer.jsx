@@ -51,12 +51,11 @@ export default React.createClass({
           render={(props) => {
             var stack = filter == undefined
               ? props.stack
-              : props.stack.filter(item => item._type == filter);
+              : props.stack.filter(item => item.type == filter);
 
             return !!stack.length ? <div> { stack.map((item, i) => {
               return render(Object.assign({}, item, {
                 key: i,
-                removeHandler: () => { NotifyActions.remove(item._id) }
               }));
             }) } </div> : null;
           }} />

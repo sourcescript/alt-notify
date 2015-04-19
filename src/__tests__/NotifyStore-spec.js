@@ -2,20 +2,13 @@ import { expect } from 'chai';
 import alt from '../alt';
 import NotifyStore from '../NotifyStore';
 import AltTestingUtils from 'alt/utils/AltTestingUtils';
-import config from '../config';
+import Item from '../Item';
 
 describe('NotifyStore', () =>  {
   var Store;
   beforeEach(() => {
-    // Stub duration
-    sinon.stub(config, 'duration').returns(10000);
     Store = AltTestingUtils.makeStoreTestable(alt, NotifyStore.StoreModel);
   });
-
-  afterEach(() => {
-    // Restore stubs so we don't affect other tests
-    config.duration.restore();
-  })
 
   it('should have an empty stack at start', () =>  {
     expect(Store.stack.length).to.equal(0);
@@ -26,6 +19,11 @@ describe('NotifyStore', () =>  {
       Store.onAdd({});
       expect(Store.stack.length).to.equal(1);
     });
+
+    it('should add an instance of `Item` in the stack', () => {
+      Store.onAdd({});
+      expect(Store.stack[0] instanceof Item).to.equal(true);
+    })
   });
 
   describe('#remove', () =>  {
@@ -37,7 +35,13 @@ describe('NotifyStore', () =>  {
 
       // then the actual test
       Store.onRemove(lastId);
-      expect(Store.stack.map(item => item._id).indexOf(lastId)).to.equal(-1);
+      expect(Store.stack.map(item => item.id).indexOf(lastId)).to.equal(-1);
+    });
+
+    it('should not emit changes (or return false) if the provided item was not found', () => {
+      // Given that the stack is empty at start, we shouldn't find anything at all.
+      // 69 is just a random number I thought of.
+      expect(Store.onRemove(69)).to.equal(false);
     });
   });
 
