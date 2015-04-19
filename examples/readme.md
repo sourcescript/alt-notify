@@ -2,7 +2,7 @@
 
 **Requirements**:
 
-You'll need **node** `>v0.10` and **npm** to run the examples.
+You'll need **node** `>=v0.10` and **npm** to run the examples.
 
 First, you'll have to clone the repository.
 
