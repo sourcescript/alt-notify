@@ -4,8 +4,16 @@ body {
 
 .drawer {
   position: fixed;
-  right: 10px;
+  left: 10px;
   top: 10px;
+}
+.drawer--success {
+  left: initial;
+  right: 10px;
+}
+.drawer--danger {
+  left: initial;
+  right: 250px;
 }
 .drawer__item {
   width: 200px;
