@@ -14,7 +14,7 @@ var App = React.createClass({
           });
           return (
             <div className={classNames}>
-              <button type="button" className="close" onClick={props.remove}>
+              <button type="button" className="close" onClick={() => { props.remove() }}>
                 X
               </button>
               <p>{props.data} </p>
@@ -25,7 +25,7 @@ var App = React.createClass({
         <Drawer className="drawer drawer--success" filter={'success'} render={(props) => {
             return (
               <div className="alert alert-success drawer__item">
-                <button type="button" className="close" onClick={props.remove}>
+                <button type="button" className="close" onClick={() => { props.remove() }}>
                   X
                 </button>
                 <p>{props.data} </p>
@@ -36,7 +36,7 @@ var App = React.createClass({
           <Drawer className="drawer drawer--danger" filter={'danger'} render={(props) => {
               return (
                 <div className="alert alert-danger drawer__item">
-                  <button type="button" className="close" onClick={props.remove}>
+                  <button type="button" className="close" onClick={() => { props.remove() }}>
                     X
                   </button>
                   <p>{props.data} </p>
