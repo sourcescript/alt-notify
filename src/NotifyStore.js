@@ -15,7 +15,7 @@ class NotifyStore {
   /**
    * Adds a new item to the stack
    */
-  onAdd(data) {
+  onAdd(prop) {
     var { type, duration } = data;
     var id = _counter++;
 
@@ -23,7 +23,7 @@ class NotifyStore {
       id: id,
       duration: duration,
       type: type,
-      data: data
+      data: data.data
     }));
   }
 
