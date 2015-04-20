@@ -1,0 +1,23 @@
+body {
+  height: 200vh;
+}
+
+.drawer {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+.drawer__item {
+  width: 200px;
+}
+
+.btn__container {
+  display: table;
+  height: 100vh;
+  width: 100%;
+}
+.btn__container__inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}

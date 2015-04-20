@@ -1,0 +1,17 @@
+{
+  "name": "twbs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/browserify -t [babelify --stage 0] --extension=.jsx . > bundle.js",
+    "start": "npm run install && npm run build && open index.html"
+  },
+  "author": "srph <seraphipod@gmail.com> (https://srph.github.io)",
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^6.0.2",
+    "browserify": "^9.0.8"
+  }
+}
