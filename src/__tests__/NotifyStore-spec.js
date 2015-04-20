@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import alt from '../alt';
 import NotifyStore from '../NotifyStore';
 import AltTestingUtils from 'alt/utils/AltTestingUtils';
+import { ITEM_ID } from '../symbols';
 import Item from '../Item';
 
 describe('NotifyStore', () =>  {
@@ -31,7 +32,7 @@ describe('NotifyStore', () =>  {
       // we'll add first
       Store.onAdd({});
       // Get the id of the last message
-      const lastId = Store.stack[0]._id;
+      const lastId = Store.stack[0][ITEM_ID];
 
       // then the actual test
       Store.onRemove(lastId);
