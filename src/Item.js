@@ -7,13 +7,16 @@ import {
 } from './symbols';
 
 class Item {
-  constructor(data) {
-    data || (data = {});
+  /**
+   * @param {Object} prop Properties (not to be mistaken with a Component `props`)
+   */
+  constructor(prop) {
+    prop || (prop = {});
 
-    this[ITEM_ID] = data.id
-    this.type = data.type;
-    this[ITEM_DURATION] = data.duration || config.duration();
-    this.data = data.data;
+    this[ITEM_ID] = prop.id
+    this.type = prop.type;
+    this[ITEM_DURATION] = prop.duration || config.duration();
+    this.data = prop.data;
 
     this[ITEM_TIMEOUT] = setTimeout(this.remove.bind(this), this[ITEM_DURATION]);
   }

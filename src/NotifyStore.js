@@ -14,16 +14,17 @@ class NotifyStore {
 
   /**
    * Adds a new item to the stack
+   * @param {Object} prop Properties (not to be mistaken with a Component `props`)
    */
   onAdd(prop) {
-    var { type, duration } = data;
+    var { data, type, duration } = prop;
     var id = _counter++;
 
     this.stack.push(new Item({
       id: id,
       duration: duration,
       type: type,
-      data: data.data
+      data: data
     }));
   }
 
