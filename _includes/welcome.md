@@ -1,6 +1,6 @@
 # Introduction
 
-**{{ page.project_name }}** was designed to be unopinionated to be used for almost any use-case. This means that you can use this library for your flashing notifications like Facebook's or Twitter's), or for simple alert messages, or whatever you can think of.
+**{{ page.project_name }}** was designed to be unopinionated for almost any use-case. This means that you can use this library for your flashing notifications like Facebook's or Twitter's), or for simple alert messages, or whatever you can think of.
 
 You can dish out the whole thing yourself, but that's tedious, right?
 
