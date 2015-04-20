@@ -1,19 +1,21 @@
 import config from './config';
 import NotifyActions from './NotifyActions';
-const ID = Symbol('id');
-const DURATION = Symbol('duration');
-const INIT = Symbol('init');
-const TIMEOUT = Symbol('_timeout');
+import {
+  ITEM_ID,
+  ITEM_DURATION,
+  ITEM_TIMEOUT
+} from './symbols';
 
 class Item {
   constructor(data) {
     data || (data = {});
-  
-    this[ID] = data.id
-    this.type = data.type;
-    this[DURATION] = data.duration || config.duration();
 
-    this[TIMEOUT] = setTimeout(this.remove.bind(this), this.duration);
+    this[ITEM_ID] = data.id
+    this.type = data.type;
+    this[ITEM_DURATION] = data.duration || config.duration();
+    this.data = data.data;
+
+    this[ITEM_TIMEOUT] = setTimeout(this.remove.bind(this), this[ITEM_DURATION]);
   }
 
   /**
@@ -21,11 +23,11 @@ class Item {
    * @see {constructor} (for the removeHandler)
    */
   remove() {
-    if ( this[TIMEOUT] ) {
-      clearTimeout(this[TIMEOUT]);
+    if ( this[ITEM_TIMEOUT] ) {
+      clearTimeout(this[ITEM_TIMEOUT]);
     }
 
-    NotifyActions.remove(this[ID]);
+    NotifyActions.remove(this[ITEM_ID]);
   }
 }
 

@@ -1,6 +1,7 @@
 import alt from './alt';
 import Item from './Item';
 import NotifyActions from './NotifyActions';
+import { ITEM_ID } from './symbols';
 
 // ID
 var _counter = 0;
@@ -31,7 +32,7 @@ class NotifyStore {
    */
   onRemove(id) {
     const index = this.stack
-      .map(item => item.id)
+      .map(item => item[ITEM_ID])
         .indexOf(id);
 
     // If the message does not in the stack anymore,
