@@ -6,6 +6,11 @@ anchor:  changelog
 
 ## Changelog {#changelog_title}
 
+### v0.3 ([commit](https://github.com/sourcescript/alt-notify/commit/a6b00ed35dd1dc4382138b6b75c5f3d1b671ef35))
+
+- Added autoremoval of items (our duration sarting to make sense here).
+- Stabilized the properties received from the `Drawer` (this was unclear in `v0.2`). Unnecessary properties received from the `Drawer` *component* are no longer exposed (`id`, `duration`, etc.). Add items through the `data` property, e.g., `NotifyActions.add({ data: 'Hey', type: 'alert' });`.
+
 ### v0.2.1
 
 - Fixed `config` export to be undefined. [commit](https://github.com/sourcescript/alt-notify/commit/8a51d49a2ccf042708d22d4e8c9a1c14af521045).
