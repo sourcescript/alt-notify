@@ -1,10 +1,11 @@
 {
   "name": "alt-notify",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Alerts, flush, whatever for Alt.",
   "main": "src/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start --single-run"
+    "test": "./node_modules/.bin/karma start --single-run",
+    "build": "babel --stage=0 --out-file dist/alt-notify.js src/"
   },
   "repository": {
     "type": "git",
