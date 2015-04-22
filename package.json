@@ -1,8 +1,8 @@
 {
   "name": "alt-notify",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Alerts, flush, whatever for Alt.",
-  "main": "src/index.js",
+  "main": "dist/alt-notify.js",
   "scripts": {
     "test": "./node_modules/.bin/karma start --single-run",
     "build": "babel --stage=0 --out-file dist/alt-notify.js src/"
