@@ -6,6 +6,15 @@ anchor:  changelog
 
 ## Changelog {#changelog_title}
 
+### v0.3.2 ([commit](https://github.com/sourcescript/alt-notify/commit/2b5708be21c37eaa3b3a360f686f75478cc3fe3a))
+
+- Fixed `package.json` not pointing to the recently added build files.
+
+### v0.3.1 ([commit](https://github.com/sourcescript/alt-notify/commit/1c86d0effb8aab60f5d962577185b91a865bf9e8))
+
+- Prepped up for **npm**. 
+- Added build files.
+
 ### v0.3 ([commit](https://github.com/sourcescript/alt-notify/commit/a6b00ed35dd1dc4382138b6b75c5f3d1b671ef35))
 
 - Added autoremoval of items (our duration sarting to make sense here).
