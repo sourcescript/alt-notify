@@ -6,7 +6,7 @@ import Item from '../Item';
 describe('Item object', () => {
   var clock, sandbox;
   beforeEach(() => {
-    sandbox = sinon.sanbox.create();
+    sandbox = sinon.sandbox.create();
     clock = sandbox.useFakeTimers();
   });
   afterEach(() => {
