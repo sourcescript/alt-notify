@@ -1,6 +1,6 @@
 {
   "name": "alt-notify",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Alerts, flush, whatever for Alt.",
   "main": "dist/alt-notify.js",
   "scripts": {
@@ -25,10 +25,6 @@
   },
   "homepage": "https://github.com/sourcescript/alt-notify",
   "dependencies": {
-    "alt": "0.15.5",
-    "react": "0.13.1"
-  },
-  "peerDependencies": {
     "alt": "0.15.5",
     "react": "0.13.1"
   },
