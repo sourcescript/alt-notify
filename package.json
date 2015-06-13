@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/karma start --single-run",
-    "babel": "./node_modules/.bin/babel ./src -d ./dist --stage=0 --ignore \"__tests__\"",
-    "prepublish": "npm run build"
+    "babel": "./node_modules/.bin/babel ./src -d ./dist --stage=0 --ignore \"__tests__\""
   },
   "repository": {
     "type": "git",
