@@ -10,6 +10,10 @@ anchor:  changelog
 
 - Fixed build.
 
+### v0.3.3([commit](https://github.com/sourcescript/alt-notify/commit/7c16c8768f63c5984034219d6a1eac252a048a1a))
+
+- Removed Alt and React from `peerDependency`.
+
 ### v0.3.2 ([commit](https://github.com/sourcescript/alt-notify/commit/2b5708be21c37eaa3b3a360f686f75478cc3fe3a))
 
 - Fixed `package.json` not pointing to the recently added build files.
