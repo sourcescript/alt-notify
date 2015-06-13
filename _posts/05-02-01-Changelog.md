@@ -6,6 +6,10 @@ anchor:  changelog
 
 ## Changelog {#changelog_title}
 
+### v0.3.4 ([commit](https://github.com/sourcescript/alt-notify/commit/210ad01f9ad5a9876de8bebb53da6104a973a812))
+
+- Fixed build.
+
 ### v0.3.2 ([commit](https://github.com/sourcescript/alt-notify/commit/2b5708be21c37eaa3b3a360f686f75478cc3fe3a))
 
 - Fixed `package.json` not pointing to the recently added build files.
