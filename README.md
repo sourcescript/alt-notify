@@ -2,6 +2,12 @@
 
 > Alerts, notification, whatever for Alt. Check the [Documentation Page](https://sourcescript.github.io/alt-notify) to get started!
 
+## Note
+
+I'm looking to transferring this repo to my (original author) account when I get my free time. However, I'd be willing to transfer it to anyone interested and qualifying.
+
+- [Discussion](https://github.com/sourcescript/alt-notify/issues/11)
+
 ## Documentation
 
 Almost everything you will need will be covered in the Documentation Page as accessibility and readability is better over there, compared to simple markdown files. This also makes the maintainers' lives easier as they docs only belong to one branch.
